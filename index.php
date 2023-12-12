@@ -42,7 +42,7 @@
     <nav class="navbar nbg-body-tertiary mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="img/Tubes.png" class="brand" alt="">
+                <img src="img/logo.png" class="brand" alt="">
                 <a href="#" class="no-decoration contactUs">Contact Us</a>
             </a>
         </div>
@@ -69,7 +69,7 @@
                         <div class="card-body text-centre">
                             <img src="img/pgw.png" width="50px">
                             <h4 class="card-tittle mb-2">Pegawai</h4>
-                            <a href="" class="no-decoration btn btn-light">ADD</a>
+                            <a href="pegawaiTable.php" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
                 </div>
@@ -78,11 +78,11 @@
                         <div class="card-body text-centre">
                             <img src="img/brg.png" width="50px">
                             <h4 class="card-tittle mb-2">Barang</h4>
-                            <a href="" class="no-decoration btn btn-light">ADD</a>
+                            <a href="barangTable.php" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 col-xl-6">
+                <!-- <div class="col-md-6 col-lg-3 col-xl-6">
                     <div class="card bg-primary text-light">
                         <div class="card-body text-centre">
                             <img src="img/trk.png" width="50px">
@@ -99,7 +99,7 @@
                             <a href="" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
-                </div>             
+                </div>              -->
         </div>
     </div>
 </section>

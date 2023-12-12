@@ -1,7 +1,7 @@
 <?php
     include'connect.php';
 
-    //$query = "select * from tb_customer";
+    //$query = "select * from tb_pegawai";
     //$sql = mysqli_query($conn, $query);
     
     ?>
@@ -10,26 +10,16 @@
         <?php
             $idC = '';
             $nameC = '';
-            $jobC = '';
             $homeC = '';
 
             if(isset($_GET['ubah'])){
                 $idC = $_GET['ubah'];
-                
-                $query="select * from tb_customer where id_customer = '$idC';";
-                $sql = mysqli_query($conn, $query);
-
-                $result= mysqli_fetch_assoc($sql);
-
-
             
-                //$query = "select * from tb_customer where id_customer = '$idC';";
-                //$sql = mysqli_query($conn, $query);
-                //$result = mysqli_fetch_assoc($sql);
+                $query = "select * from tb_pegawai where id_pegawai = '$idC';";
+                $sql = mysqli_query($conn, $query);
+                $result = mysqli_fetch_assoc($sql);
 
-                //$idC = $result['id_customer'];
-                $nameC = $result['nama'];
-                $jobC = $result['pekerjaan'];
+                $nameC = $result['nama_pegawai'];
                 $homeC = $result['alamat'];
                 //var_dump($result);
 
@@ -41,7 +31,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Customer Input</title>
+        <title>Pegawai Input</title>
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <style>
@@ -72,8 +62,8 @@
 
     <!--From Input-->
     <div class="container mt-5">
-        <p class="h1 text-center mb-4">Silahkan Mengisi Data Customer</p>
-        <form action="prosesCustomer.php" method="POST">
+        <p class="h1 text-center mb-4">Silahkan Mengisi Data Pegawai</p>
+        <form action="prosesPegawai.php" method="POST">
             <input type="hidden" value="<?php echo $idC; ?>" name="">
         <!-- <div class="mb-3">
             <label for="..." class="form-label"><strong>ID</strong></label>
@@ -85,35 +75,25 @@
             <input required type="text" id="..." name="nama" class="form-control" placeholder="Masukan Nama Anda" value="<?php echo $nameC; ?>">
         </div>
         <div class="mb-3">
-            <label for="..." class="form-label"><strong>Pekerjaan</strong></label>
-            <select required id="..." name="pekerjaan" class="form-select">
-                <option value="">Pilih Pekerjaan Anda</option>
-                <option <?php if($jobC == 'PNS'){echo "selected";} ?> value="PNS">PNS</option>
-                <option <?php if($jobC == 'Swasta'){echo "selected";} ?> value="Swasta">Swasta</option>
-                <option <?php if($jobC == 'Belum Bekerja'){echo "selected";} ?> value="Belum Bekerja">Belum Bekerja</option>
-                <option <?php if($jobC == 'Lainnya'){echo "selected";} ?> value="Lainnya">Lainnya</option>
-            </select>
-        </div>
-        <div class="mb-3">
             <label for="..." class="form-label"><strong>Alamat</strong></label>
             <input required type="text" id="..." name="alamat" class="form-control" placeholder="Masukan Alamat Anda" value="<?php echo $homeC; ?>">
         </div><?php
                 if(isset($_GET['ubah'])){
             ?>
-                <button href="customerTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="update">
+                <button href="pegawaiTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="ganti">
                     Edit Data
                 </button>
             <?php  
                 } else {
             ?>
-                <button href="customerTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
+                <button href="pegawaiTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
                     Kirim Data
                 </button>
             <?php
                 }
             ?>
         
-        <a href="customerTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
+        <a href="pegawaiTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
         </form>
     </div>
     <br>

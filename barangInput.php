@@ -10,27 +10,19 @@
         <?php
             $idC = '';
             $nameC = '';
-            $jobC = '';
-            $homeC = '';
+            $jenisC = '';
+            $capacityC = '';
 
             if(isset($_GET['ubah'])){
                 $idC = $_GET['ubah'];
-                
-                $query="select * from tb_customer where id_customer = '$idC';";
-                $sql = mysqli_query($conn, $query);
-
-                $result= mysqli_fetch_assoc($sql);
-
-
             
-                //$query = "select * from tb_customer where id_customer = '$idC';";
-                //$sql = mysqli_query($conn, $query);
-                //$result = mysqli_fetch_assoc($sql);
+                $query = "select * from tb_tenda where id_tenda = '$idC';";
+                $sql = mysqli_query($conn, $query);
+                $result = mysqli_fetch_assoc($sql);
 
-                //$idC = $result['id_customer'];
-                $nameC = $result['nama'];
-                $jobC = $result['pekerjaan'];
-                $homeC = $result['alamat'];
+                $nameC = $result['nama_tenda'];
+                $jenisC = $result['jenis_tenda'];
+                $capacityC = $result['kapasitas_tenda'];
                 //var_dump($result);
 
                 //die();
@@ -72,48 +64,42 @@
 
     <!--From Input-->
     <div class="container mt-5">
-        <p class="h1 text-center mb-4">Silahkan Mengisi Data Customer</p>
-        <form action="prosesCustomer.php" method="POST">
+        <p class="h1 text-center mb-4">Silahkan Mengisi Data Tenda</p>
+        <form action="prosesBarang.php" method="POST">
             <input type="hidden" value="<?php echo $idC; ?>" name="">
         <!-- <div class="mb-3">
             <label for="..." class="form-label"><strong>ID</strong></label>
-            <input required type="number" id="..." name="id" class="form-control" placeholder="Contoh:123" value="<?php echo ($idC); ?>">
+            <input required type="number" id="..." name="id_tenda" class="form-control" placeholder="Contoh:123" value="<?php echo ($idC); ?>">
             <div class="form-text">Masukan 0-3 Character</div>
         </div> -->
         <div class="mb-3">
             <label for="..." class="form-label"><strong>Nama</strong></label>
-            <input required type="text" id="..." name="nama" class="form-control" placeholder="Masukan Nama Anda" value="<?php echo $nameC; ?>">
+            <input required type="text" id="..." name="nama_tenda" class="form-control" placeholder="Masukan Nama Anda" value="<?php echo $nameC; ?>">
         </div>
         <div class="mb-3">
-            <label for="..." class="form-label"><strong>Pekerjaan</strong></label>
-            <select required id="..." name="pekerjaan" class="form-select">
-                <option value="">Pilih Pekerjaan Anda</option>
-                <option <?php if($jobC == 'PNS'){echo "selected";} ?> value="PNS">PNS</option>
-                <option <?php if($jobC == 'Swasta'){echo "selected";} ?> value="Swasta">Swasta</option>
-                <option <?php if($jobC == 'Belum Bekerja'){echo "selected";} ?> value="Belum Bekerja">Belum Bekerja</option>
-                <option <?php if($jobC == 'Lainnya'){echo "selected";} ?> value="Lainnya">Lainnya</option>
-            </select>
+            <label for="..." class="form-label"><strong>Jenis Tenda</strong></label>
+            <input required type="text" id="..." name="jenis_tenda" class="form-control" placeholder="Masukan Jenis Tenda" value="<?php echo $jenisC; ?>">
         </div>
         <div class="mb-3">
-            <label for="..." class="form-label"><strong>Alamat</strong></label>
-            <input required type="text" id="..." name="alamat" class="form-control" placeholder="Masukan Alamat Anda" value="<?php echo $homeC; ?>">
+            <label for="..." class="form-label"><strong>Kapasitas Tenda</strong></label>
+            <input required type="text" id="..." name="kapasitas_tenda" class="form-control" placeholder="Masukan Kapasitas Tenda" value="<?php echo $capacityC; ?>">
         </div><?php
                 if(isset($_GET['ubah'])){
             ?>
-                <button href="customerTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="update">
+                <button href="barangTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
                     Edit Data
                 </button>
             <?php  
                 } else {
             ?>
-                <button href="customerTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
+                <button href="barangTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
                     Kirim Data
                 </button>
             <?php
                 }
             ?>
         
-        <a href="customerTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
+        <a href="barangTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
         </form>
     </div>
     <br>

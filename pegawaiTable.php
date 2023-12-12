@@ -1,7 +1,7 @@
 <?php
     include'connect.php';
 
-    $query = "select * from tb_customer";
+    $query = "select * from tb_pegawai";
     $sql = mysqli_query($conn, $query);
     if (!$sql) {
         die("Query failed: " . mysqli_error($conn));
@@ -47,12 +47,12 @@
 
     <!--Customer Table-->
     <div class="container mt-5 text-center">
-        <h1>Customer</h1>
+        <h1>Pegawai</h1>
         <figcaption class="blockquote-footer mt-1">
-            Halaman Yang Berhubungan Dengan Customer...
+            Halaman Yang Berhubungan Dengan Pegawai...
         </figcaption>
         <div>
-            <a href="customerInput.php" type="button" class="btn btn-primary mb-3 ">
+            <a href="pegawaiInput.php" type="button" class="btn btn-primary mb-3 ">
                  <i class="fa fa-user-plus" aria-hidden="true"></i> Tambah Data
             </a>
         </div>
@@ -61,7 +61,6 @@
                 <tr>
                     <!-- <th>ID</th> -->
                     <th>Nama</th>
-                    <th>Pekerjaan</th>
                     <th>Alamat</th>
                     <th class="text-center">Ubah/Hapus</th>
                 </tr>
@@ -72,22 +71,19 @@
             ?>
                     <tr>
                         <!-- <td><center>
-                            <?php //echo $result['id_customer']; ?>
+                            <?php //echo $result['id_pegawai']; ?>
                         </center></td> -->
                         <td><center>
-                            <?php echo $result['nama']; ?>
+                            <?php echo $result['nama_pegawai']; ?>
                         </td></center>
-                        <td>
-                            <?php echo $result['pekerjaan']; ?>
-                        </td>
                         <td>
                             <?php echo $result['alamat']; ?>
                         </td>
                         <td class="text-center">
-                            <a href="customerInput.php?ubah=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-success" name="submitData">
+                            <a href="pegawaiInput.php?ubah=<?php echo $result['id_pegawai']; ?>" type="submit" class="btn btn-success" name="edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="prosesCustomer.php?hapus=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-danger" name="submitData">
+                            <a href="prosesPegawai.php?hapus=<?php echo $result['id_pegawai']; ?>" type="submit" class="btn btn-danger" name="delete">
                                 <i class="fa fa-trash"></i>
                             </a>
                        </td>

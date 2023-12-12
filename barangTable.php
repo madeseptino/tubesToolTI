@@ -1,7 +1,7 @@
 <?php
     include'connect.php';
 
-    $query = "select * from tb_customer";
+    $query = "select * from tb_tenda";
     $sql = mysqli_query($conn, $query);
     if (!$sql) {
         die("Query failed: " . mysqli_error($conn));
@@ -47,12 +47,12 @@
 
     <!--Customer Table-->
     <div class="container mt-5 text-center">
-        <h1>Customer</h1>
+        <h1>Barang</h1>
         <figcaption class="blockquote-footer mt-1">
-            Halaman Yang Berhubungan Dengan Customer...
+            Halaman Yang Berhubungan Dengan Barang...
         </figcaption>
         <div>
-            <a href="customerInput.php" type="button" class="btn btn-primary mb-3 ">
+            <a href="barangInput.php" type="button" class="btn btn-primary mb-3 ">
                  <i class="fa fa-user-plus" aria-hidden="true"></i> Tambah Data
             </a>
         </div>
@@ -60,9 +60,9 @@
             <thead>
                 <tr>
                     <!-- <th>ID</th> -->
-                    <th>Nama</th>
-                    <th>Pekerjaan</th>
-                    <th>Alamat</th>
+                    <th>Nama Tenda</th>
+                    <th>Jenis Tenda</th>
+                    <th>Kapasitas Tenda</th>
                     <th class="text-center">Ubah/Hapus</th>
                 </tr>
             </thead>
@@ -72,22 +72,22 @@
             ?>
                     <tr>
                         <!-- <td><center>
-                            <?php //echo $result['id_customer']; ?>
+                            <?php //echo $result['id_tenda']; ?>
                         </center></td> -->
                         <td><center>
-                            <?php echo $result['nama']; ?>
+                            <?php echo $result['nama_tenda']; ?>
                         </td></center>
                         <td>
-                            <?php echo $result['pekerjaan']; ?>
+                            <?php echo $result['jenis_tenda']; ?>
                         </td>
                         <td>
-                            <?php echo $result['alamat']; ?>
+                            <?php echo $result['kapasitas_tenda']; ?>
                         </td>
                         <td class="text-center">
-                            <a href="customerInput.php?ubah=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-success" name="submitData">
+                            <a href="barangInput.php?ubah=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-success" name="edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="prosesCustomer.php?hapus=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-danger" name="submitData">
+                            <a href="prosesBarang.php?hapus=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-danger" name="delete">
                                 <i class="fa fa-trash"></i>
                             </a>
                        </td>
