@@ -1,10 +1,6 @@
 <?php
     include'connect.php';
-
-    //$query = "select * from tb_customer";
-    //$sql = mysqli_query($conn, $query);
-    
-    ?>
+?>
 
 <!DOCTYPE html>
         <?php
@@ -16,24 +12,13 @@
             if(isset($_GET['ubah'])){
                 $idC = $_GET['ubah'];
                 
-                $query="select * from tb_customer where id_customer = '$idC';";
+                $query = "select * from tb_customer where id_customer = '$idC';";
                 $sql = mysqli_query($conn, $query);
+                $result = mysqli_fetch_assoc($sql);
 
-                $result= mysqli_fetch_assoc($sql);
-
-
-            
-                //$query = "select * from tb_customer where id_customer = '$idC';";
-                //$sql = mysqli_query($conn, $query);
-                //$result = mysqli_fetch_assoc($sql);
-
-                //$idC = $result['id_customer'];
                 $nameC = $result['nama'];
                 $jobC = $result['pekerjaan'];
                 $homeC = $result['alamat'];
-                //var_dump($result);
-
-                //die();
         }
         ?>
 
@@ -74,12 +59,7 @@
     <div class="container mt-5">
         <p class="h1 text-center mb-4">Silahkan Mengisi Data Customer</p>
         <form action="prosesCustomer.php" method="POST">
-            <input type="hidden" value="<?php echo $idC; ?>" name="">
-        <!-- <div class="mb-3">
-            <label for="..." class="form-label"><strong>ID</strong></label>
-            <input required type="number" id="..." name="id" class="form-control" placeholder="Contoh:123" value="<?php echo ($idC); ?>">
-            <div class="form-text">Masukan 0-3 Character</div>
-        </div> -->
+        <input type="hidden" value="<?php echo $idC; ?>" name="id_customer">
         <div class="mb-3">
             <label for="..." class="form-label"><strong>Nama</strong></label>
             <input required type="text" id="..." name="nama" class="form-control" placeholder="Masukan Nama Anda" value="<?php echo $nameC; ?>">
@@ -97,24 +77,26 @@
         <div class="mb-3">
             <label for="..." class="form-label"><strong>Alamat</strong></label>
             <input required type="text" id="..." name="alamat" class="form-control" placeholder="Masukan Alamat Anda" value="<?php echo $homeC; ?>">
-        </div><?php
-                if(isset($_GET['ubah'])){
-            ?>
-                <button href="customerTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="update">
-                    Edit Data
-                </button>
-            <?php  
-                } else {
-            ?>
-                <button href="customerTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
-                    Kirim Data
-                </button>
-            <?php
-                }
-            ?>
-        
-        <a href="customerTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
-        </form>
+        </div>
+        <?php
+    if(isset($_GET['ubah'])){
+    ?>
+        <button type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" name="update">
+            Edit Data
+        </button>
+    <?php  
+    } else {
+    ?>
+        <button type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" name="submitData">
+            Kirim Data
+        </button>
+    <?php
+    }
+    ?>
+
+    <a href="customerTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
+</form>
+
     </div>
     <br>
     <br>

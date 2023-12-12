@@ -80,7 +80,7 @@
         </div><?php
                 if(isset($_GET['ubah'])){
             ?>
-                <button href="pegawaiTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="ganti">
+                <button href="pegawaiTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
                     Edit Data
                 </button>
             <?php  

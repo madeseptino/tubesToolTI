@@ -1,31 +1,24 @@
 <?php
     include'connect.php';
-
-    //$query = "select * from tb_customer";
-    //$sql = mysqli_query($conn, $query);
-    
-    ?>
+?>
 
 <!DOCTYPE html>
         <?php
             $idC = '';
             $nameC = '';
             $jenisC = '';
-            $capacityC = '';
+            $kapasitasC = '';
 
             if(isset($_GET['ubah'])){
                 $idC = $_GET['ubah'];
-            
+                
                 $query = "select * from tb_tenda where id_tenda = '$idC';";
                 $sql = mysqli_query($conn, $query);
                 $result = mysqli_fetch_assoc($sql);
 
                 $nameC = $result['nama_tenda'];
                 $jenisC = $result['jenis_tenda'];
-                $capacityC = $result['kapasitas_tenda'];
-                //var_dump($result);
-
-                //die();
+                $kapasitasC = $result['kapasitas_tenda'];
         }
         ?>
 
@@ -33,7 +26,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Customer Input</title>
+        <title>Barang Input</title>
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <style>
@@ -57,24 +50,19 @@
         <div class="container">
             <a class="navbar-brand" href="index.php">
                 <img src="img/logo.png" class="brand" alt="">
-                <a href="#" class="contactUs">Contact Us</a>
+                <a href="#" class="no_decoration contactUs">Contact Us</a>
             </a>
         </div>
     </nav>
 
     <!--From Input-->
     <div class="container mt-5">
-        <p class="h1 text-center mb-4">Silahkan Mengisi Data Tenda</p>
+        <p class="h1 text-center mb-4">Silahkan Mengisi Data Barang</p>
         <form action="prosesBarang.php" method="POST">
-            <input type="hidden" value="<?php echo $idC; ?>" name="">
-        <!-- <div class="mb-3">
-            <label for="..." class="form-label"><strong>ID</strong></label>
-            <input required type="number" id="..." name="id_tenda" class="form-control" placeholder="Contoh:123" value="<?php echo ($idC); ?>">
-            <div class="form-text">Masukan 0-3 Character</div>
-        </div> -->
+        <input type="hidden" value="<?php echo $idC; ?>" name="id_tenda">
         <div class="mb-3">
-            <label for="..." class="form-label"><strong>Nama</strong></label>
-            <input required type="text" id="..." name="nama_tenda" class="form-control" placeholder="Masukan Nama Anda" value="<?php echo $nameC; ?>">
+            <label for="..." class="form-label"><strong>Nama Tenda</strong></label>
+            <input required type="text" id="..." name="nama_tenda" class="form-control" placeholder="Masukan Nama Tenda" value="<?php echo $nameC; ?>">
         </div>
         <div class="mb-3">
             <label for="..." class="form-label"><strong>Jenis Tenda</strong></label>
@@ -82,25 +70,27 @@
         </div>
         <div class="mb-3">
             <label for="..." class="form-label"><strong>Kapasitas Tenda</strong></label>
-            <input required type="text" id="..." name="kapasitas_tenda" class="form-control" placeholder="Masukan Kapasitas Tenda" value="<?php echo $capacityC; ?>">
-        </div><?php
-                if(isset($_GET['ubah'])){
-            ?>
-                <button href="barangTable.php" type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
-                    Edit Data
-                </button>
-            <?php  
-                } else {
-            ?>
-                <button href="barangTable.php" type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" id="..." name="submitData">
-                    Kirim Data
-                </button>
-            <?php
-                }
-            ?>
-        
-        <a href="barangTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
-        </form>
+            <input required type="text" id="..." name="kapasitas_tenda" class="form-control" placeholder="Masukan Kapasitas Tenda" value="<?php echo $kapasitasC; ?>">
+        </div>
+        <?php
+    if(isset($_GET['ubah'])){
+    ?>
+        <button type="submit" value="edit" class="btn btn-primary mt-2 fa fa-paper-plane" name="update">
+            Edit Data
+        </button>
+    <?php  
+    } else {
+    ?>
+        <button type="submit" value="add" class="btn btn-primary mt-2 fa fa-paper-plane" name="submitData">
+            Kirim Data
+        </button>
+    <?php
+    }
+    ?>
+
+    <a href="barangTable.php" class="btn btn-danger mt-2 fa fa-undo" id="..." name="...">Batal</a>
+</form>
+
     </div>
     <br>
     <br>

@@ -7,7 +7,6 @@
         die("Query failed: " . mysqli_error($conn));
     }
     $result = mysqli_fetch_assoc($sql);
-    // Output the result or use it as needed
 
 ?>
 
@@ -71,9 +70,6 @@
                 while($result = mysqli_fetch_assoc($sql)){
             ?>
                     <tr>
-                        <!-- <td><center>
-                            <?php //echo $result['id_customer']; ?>
-                        </center></td> -->
                         <td><center>
                             <?php echo $result['nama']; ?>
                         </td></center>
@@ -84,10 +80,10 @@
                             <?php echo $result['alamat']; ?>
                         </td>
                         <td class="text-center">
-                            <a href="customerInput.php?ubah=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-success" name="submitData">
+                            <a href="customerInput.php?ubah=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-success" name="edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="prosesCustomer.php?hapus=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-danger" name="submitData">
+                            <a href="prosesCustomer.php?hapus=<?php echo $result['id_customer']; ?>" type="submit" class="btn btn-danger" name="delete">
                                 <i class="fa fa-trash"></i>
                             </a>
                        </td>

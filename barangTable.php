@@ -7,7 +7,6 @@
         die("Query failed: " . mysqli_error($conn));
     }
     $result = mysqli_fetch_assoc($sql);
-    // Output the result or use it as needed
 
 ?>
 
@@ -16,7 +15,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Tabel Barang</title>
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
@@ -40,7 +39,7 @@
         <div class="container">
             <a class="navbar-brand" href="index.php">
                 <img src="img/logo.png" class="brand" alt="">
-                <a href="#" class="contactUs">Contact Us</a>
+                <a href="#" class="no_decoration contactUs">Contact Us</a>
             </a>
         </div>
     </nav>
@@ -59,7 +58,6 @@
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
-                    <!-- <th>ID</th> -->
                     <th>Nama Tenda</th>
                     <th>Jenis Tenda</th>
                     <th>Kapasitas Tenda</th>
@@ -68,33 +66,31 @@
             </thead>
             <tbody>
             <?php
-                while($result = mysqli_fetch_assoc($sql)){
+            while($result = mysqli_fetch_assoc($sql)){
             ?>
-                    <tr>
-                        <!-- <td><center>
-                            <?php //echo $result['id_tenda']; ?>
-                        </center></td> -->
-                        <td><center>
-                            <?php echo $result['nama_tenda']; ?>
-                        </td></center>
-                        <td>
-                            <?php echo $result['jenis_tenda']; ?>
-                        </td>
-                        <td>
-                            <?php echo $result['kapasitas_tenda']; ?>
-                        </td>
-                        <td class="text-center">
-                            <a href="barangInput.php?ubah=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-success" name="edit">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                            <a href="prosesBarang.php?hapus=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-danger" name="delete">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                       </td>
-                    </tr>
+                <tr>
+                    <td><center>
+                        <?php echo $result['nama_tenda']; ?>
+                    </td></center>
+                    <td>
+                        <?php echo $result['jenis_tenda']; ?>
+                    </td>
+                    <td>
+                        <?php echo $result['kapasitas_tenda']; ?>
+                    </td>
+                    <td class="text-center">
+                        <a href="barangInput.php?ubah=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-success" name="edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="prosesBarang.php?hapus=<?php echo $result['id_tenda']; ?>" type="submit" class="btn btn-danger" name="delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
             <?php
-                }
+            }
             ?>
+
             </tbody>
         </table>
     </div>
