@@ -1,3 +1,11 @@
+<?php
+    include'connect.php';
+
+    $query = "select * from tb_customer";
+    $sql = mysqli_query($conn, $query);
+    //var_dump($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +16,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .mainNavbar{
-            background-color: black;
+            background-color: rgb(40, 40, 40);
         }
         .brand{
             width: 180px;
@@ -18,7 +26,6 @@
             color: white;
             position: absolute;
             right: 30px;
-            background-color: #;
         }
         .box{
             padding : 30px;
@@ -34,15 +41,15 @@
 <body>               
     <nav class="navbar nbg-body-tertiary mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="Tubes.png" class="brand" alt="">
+            <a class="navbar-brand" href="index.php">
+                <img src="img/logo.png" class="brand" alt="">
                 <a href="#" class="no-decoration contactUs">Contact Us</a>
             </a>
         </div>
     </nav>
     <section class="jumbotron text-center mt-5">
-        <img src="pp.png" alt="" width="100px" class=" rounded-circle">
-        <h5 class="mt-3">Your Name</h5>
+        <img src="img/pp.png" alt="" width="100px" class=" rounded-circle">
+        <h5 class="mt-3">Welcome!</h5>
     </section>
 
 <section class="p-5">
@@ -51,34 +58,34 @@
                 <div class="col-md-6 col-lg-3 col-xl-4">
                     <div class="card bg-danger text-light">
                         <div class="card-body text-centre">
-                            <img src="cst.png" width="50px">
+                            <img src="img/cst.png" width="50px">
                             <h4 class="card-tittle mb-2">Customer</h4>
-                            <a href="" class="no-decoration btn btn-light">ADD</a>
+                            <a href="customerTable.php" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 col-xl-4">
                     <div class="card bg-warning text-light">
                         <div class="card-body text-centre">
-                            <img src="pgw.png" width="50px">
+                            <img src="img/pgw.png" width="50px">
                             <h4 class="card-tittle mb-2">Pegawai</h4>
-                            <a href="" class="no-decoration btn btn-light">ADD</a>
+                            <a href="pegawaiTable.php" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 col-xl-4">
                     <div class="card bg-success text-light">
                         <div class="card-body text-centre">
-                            <img src="brg.png" width="50px">
+                            <img src="img/brg.png" width="50px">
                             <h4 class="card-tittle mb-2">Barang</h4>
-                            <a href="" class="no-decoration btn btn-light">ADD</a>
+                            <a href="barangTable.php" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 col-xl-6">
+                <!-- <div class="col-md-6 col-lg-3 col-xl-6">
                     <div class="card bg-primary text-light">
                         <div class="card-body text-centre">
-                            <img src="trk.png" width="50px">
+                            <img src="img/trk.png" width="50px">
                             <h4 class="card-tittle mb-2">Transaksi</h4>
                             <a href="" class="no-decoration btn btn-light">ADD</a>
                         </div>
@@ -87,12 +94,12 @@
                 <div class="col-md-6 col-lg-3 col-xl-6">
                     <div class="card bg-secondary text-light">
                         <div class="card-body text-centre">
-                            <img src="kmb.png" width="50px">
+                            <img src="img/kmb.png" width="50px">
                             <h4 class="card-tittle mb-2">Pengembalian</h4>
                             <a href="" class="no-decoration btn btn-light">ADD</a>
                         </div>
                     </div>
-                </div>             
+                </div>              -->
         </div>
     </div>
 </section>
